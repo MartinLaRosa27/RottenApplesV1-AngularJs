@@ -1,0 +1,44 @@
+<div id="reviews" class="bg-dark bg-gradient">
+  <!-- CARGANDO -->
+  <div *ngIf="reviews == null" class="cargando pt-5 text-center">
+    <h1>Cargando...</h1>
+  </div>
+  <!-- CARGANDO -->
+
+  <!-- CARGADO -->
+  <div *ngIf="reviews != null" class="container">
+    <!-- LISTADO -->
+    <div *ngIf="reviews.length > 0">
+      <h3 class="pt-5 text-center fst-italic">Todas las reviews</h3>
+      <div class="card mt-5" *ngFor="let review of reviews">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img [src]="review.img" class="img-fluid rounded-start" [alt]="review.titulo" />
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ review.titulo }} ({{ review.anio }})
+              </h5>
+              <p class="card-text">{{ review.descripcion }}</p>
+              <p class="card-text">
+                <small class="text-muted">{{ review.createdAt }} | de
+                  <strong>{{ review.username }}</strong></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LISTADO -->
+
+    <!-- NO HAY REVIEWS REGISTRADAS -->
+    <div class="pt-5" *ngIf="reviews.length == 0">
+      <div class="alert alert-info m-0 text-center" role="alert">
+        Por favor, ingrese una review de alguna película
+      </div>
+    </div>
+    <!-- NO HAY REVIEWS REGISTRADAS -->
+  </div>
+  <!-- CARGADO -->
+</div>

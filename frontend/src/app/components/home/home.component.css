@@ -1,0 +1,18 @@
+#home {
+  min-height: 100vh;
+  background: url("../../../assets/fondo.png");
+  background-size: cover;
+}
+
+#home .container {
+  border-radius: 20px;
+}
+
+#home span {
+  color: #d64747;
+}
+
+#home img {
+  background: rgb(20, 20, 20, 0.6);
+  border-radius: 20px;
+}

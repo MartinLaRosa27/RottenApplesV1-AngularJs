@@ -1,0 +1,13 @@
+#administrador {
+  min-height: 100vh;
+}
+
+#administrador h1,
+h3 {
+  color: #d64747;
+}
+
+#administrador .eliminar {
+  cursor: pointer;
+  transition: 0.5s;
+}

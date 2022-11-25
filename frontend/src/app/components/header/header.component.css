@@ -1,0 +1,12 @@
+#header img {
+  width: 150px;
+}
+
+#header a {
+  color: whitesmoke !important;
+  transition: 0.5s  !important;
+}
+
+#header a:hover {
+  color: #d64747 !important;
+}

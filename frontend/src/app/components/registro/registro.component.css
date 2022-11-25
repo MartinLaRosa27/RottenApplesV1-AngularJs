@@ -1,0 +1,36 @@
+#registro {
+  min-height: 100vh;
+  background: url("../../../assets/fondo.png");
+  background-size: cover;
+}
+
+#registro .formulario {
+  border-radius: 20px;
+}
+
+#registro button {
+  background-color: #d64747;
+  color: black;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+#registro button:hover {
+  background-color: black;
+  color: #d64747;
+  border: 1px solid #d64747;
+  transition: 0.5s;
+}
+
+#registro h3 {
+  color: #d64747;
+}
+
+#registro span {
+  color: #d64747;
+}
+
+#registro img {
+  background: rgb(20, 20, 20, 0.6);
+  border-radius: 20px;
+}

@@ -1,0 +1,82 @@
+<div id="registro" class="pb-5 pt-5">
+  <!-- Logo -->
+  <div class="text-center pb-4">
+    <img src="assets/logo.png" alt="Rottten Apples" />
+  </div>
+  <!-- Logo -->
+
+  <!-- FormSign -->
+  <div class="formulario container bg-dark text-light pt-1 pb-2">
+    <h3 class="text-center text-uppercase">Registrarse</h3>
+    <form [formGroup]="miFormulario">
+      <div class="mb-3">
+        <label class="form-label">Nombre de Usuario:</label>
+        <input type="text" class="form-control" name="username" formControlName="username" />
+        <small class="text-danger" *ngIf="
+            miFormulario.controls['username'].invalid &&
+            miFormulario.controls['username'].dirty &&
+            miFormulario.controls['username'].touched
+          ">
+          El nombre de usuario es obligatorio, y debe tener entre 3 y 50
+          caracteres.
+        </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input type="email" class="form-control" name="email" formControlName="email" />
+        <small class="text-danger" *ngIf="
+            miFormulario.controls['email'].invalid &&
+            miFormulario.controls['email'].dirty &&
+            miFormulario.controls['email'].touched
+          ">
+          El email es obligatorio, y debe tener entre 5 y 60 caracteres.
+        </small>
+      </div>
+      <div class="mb-3">
+        <label lass="form-label">Contraseña:</label>
+        <input type="password" class="form-control" name="password" formControlName="password" />
+        <small class="text-danger" *ngIf="
+            miFormulario.controls['password'].invalid &&
+            miFormulario.controls['password'].dirty &&
+            miFormulario.controls['password'].touched
+          ">
+          La contraseña debe tener entre 8 y 25 caracteres, y al menos un
+          número. No puede tener caracteres especiales.
+        </small>
+      </div>
+      <div class="mb-3">
+        <label lass="form-label">Contraseña Nuevamente:</label>
+        <input type="password" class="form-control" name="passwordAux" formControlName="passwordAux" />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="confirmacion" formControlName="confirmacion" checked />
+        <label class="form-check-label">Al registrarte, aceptas los <span>Términos de servicio</span> y la
+          <span>Política de privacidad</span>.</label>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="postUsuario()"
+        [disabled]="miFormulario.invalid || !miFormulario.value.confirmacion">
+        Registrarse
+      </button>
+    </form>
+  </div>
+  <!-- FormSign -->
+
+  <!-- FormLogin -->
+  <div class="formulario bg-dark mt-5 text-light pt-1 pb-2 container">
+    <h3 class="text-center text-uppercase">Iniciar Sesión</h3>
+    <form [formGroup]="miFormulario2">
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input type="email" class="form-control" name="email" formControlName="email" />
+      </div>
+      <div class="mb-3">
+        <label lass="form-label">Contraseña:</label>
+        <input type="password" class="form-control" name="password" formControlName="password" />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="miFormulario2.invalid">
+        Iniciar Sesión
+      </button>
+    </form>
+  </div>
+  <!-- FormLogin -->
+</div>

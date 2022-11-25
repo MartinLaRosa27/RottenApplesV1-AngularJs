@@ -1,0 +1,47 @@
+#mis_reviews {
+  min-height: 100vh;
+}
+
+#mis_reviews .cargando {
+  color: #d64747;
+}
+
+#mis_reviews .descartar {
+  margin-left: 10px !important;
+}
+
+#mis_reviews button {
+  background-color: #d64747;
+  color: black;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+#mis_reviews button:hover {
+  background-color: black;
+  color: #d64747;
+  border: 1px solid #d64747;
+  transition: 0.5s;
+}
+
+#mis_reviews h3 {
+  color: #d64747;
+}
+
+#mis_reviews label {
+  color: whitesmoke;
+}
+
+#mis_reviews .editar {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#mis_reviews .editar:hover {
+  color: #d64747 !important;
+}
+
+#mis_reviews .eliminar {
+  cursor: pointer;
+  transition: 0.5s;
+}

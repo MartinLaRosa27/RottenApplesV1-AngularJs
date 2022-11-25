@@ -1,0 +1,46 @@
+<div id="agregar-pelicula" class="text-light">
+    <form [formGroup]="miFormulario">
+        <div class="mb-3">
+            <label class="form-label">Nombre de la Película:</label>
+            <input type="text" class="form-control" name="titulo" formControlName="titulo" />
+            <small class="text-danger" *ngIf="
+          miFormulario.controls['titulo'].invalid &&
+          miFormulario.controls['titulo'].dirty &&
+          miFormulario.controls['titulo'].touched
+        ">
+                El nombre de la película es obligatorio. Debe tener entre 3 y 255
+                caracteres.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Año de Estreno:</label>
+            <input type="number" class="form-control" name="anio" formControlName="anio" />
+            <small class="text-danger" *ngIf="
+          miFormulario.controls['anio'].invalid &&
+          miFormulario.controls['anio'].dirty &&
+          miFormulario.controls['anio'].touched
+        ">
+                El año de estreno es obligatorio. Debe ser entre 1950 y
+                {{ anioActual }}.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">URL de la Portada:</label>
+            <input type="url" class="form-control" name="img" formControlName="img" />
+            <small class="text-danger" *ngIf="
+          miFormulario.controls['img'].invalid &&
+          miFormulario.controls['img'].dirty &&
+          miFormulario.controls['img'].touched
+        ">
+                El año de estreno es obligatorio. Debe ser entre 1950 y
+                {{ anioActual }}.
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="postPelicula()" [disabled]="miFormulario.invalid">
+            Publicar
+        </button>
+        <button type="button" class="btn btn-primary descartar" (click)="resetFormulario()">
+            Descartar
+        </button>
+    </form>
+</div>

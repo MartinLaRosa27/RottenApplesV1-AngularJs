@@ -1,0 +1,17 @@
+#agregar-pelicula .descartar {
+  margin-left: 10px !important;
+}
+
+#agregar-pelicula button {
+  background-color: #d64747;
+  color: black;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+#agregar-pelicula button:hover {
+  background-color: black;
+  color: #d64747;
+  border: 1px solid #d64747;
+  transition: 0.5s;
+}

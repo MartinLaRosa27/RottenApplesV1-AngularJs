@@ -1,0 +1,35 @@
+<nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid container">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img src="assets/logo.png" alt="Rotten Apples" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- REVIEWS -->
+        <li *ngIf="autenticador.estaAutenticado()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/reviews']">Reviews</a>
+        </li>
+        <!-- MIS REVIEWS -->
+        <li *ngIf="autenticador.estaAutenticado()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/mis-reviews']">Mis Reviews</a>
+        </li>
+        <!-- ADMINISTRADOR -->
+        <li *ngIf="autenticador.estaAutenticado()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/administrador']">Administrador</a>
+        </li>
+        <!-- INICIAR SESION -->
+        <li *ngIf="!autenticador.estaAutenticado()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/registro']">Iniciar Sesión</a>
+        </li>
+        <!-- CERRAR SESION -->
+        <li *ngIf="autenticador.estaAutenticado()" class="nav-item" (click)="logOut()">
+          <a class="nav-link">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+#reviews {
+  min-height: 100vh;
+}
+
+#reviews .cargando {
+  color: #d64747;
+}
+
+#reviews h3 {
+  color: #d64747;
+}
+
+#reviews span {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#reviews span:hover {
+  color: black;
+}
+
+#reviews .pagination a {
+  color: black;
+  background: #d64747;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+#reviews .pagination a:hover {
+  color: #d64747;
+  background: black;
+  border: 1px solid #d64747;
+}

@@ -1,0 +1,91 @@
+<div id="administrador" class="bg-dark bg-gradient">
+  <!-- CARGANDO -->
+  <div *ngIf="
+      usuario == null ||
+      usuarios == null ||
+      reviews == null ||
+      peliculas == null
+    " class="cargando pt-5 text-center">
+    <h1>Cargando...</h1>
+  </div>
+  <!-- CARGANDO -->
+
+  <div *ngIf="
+      usuario != null &&
+      usuarios != null &&
+      reviews != null &&
+      peliculas != null
+    ">
+    <!-- NO ES ADMINISTRADOR -->
+    <div class="container pt-5 pb-3" *ngIf="usuario[2] == 0">
+      <div class="alert alert-info m-0" role="alert">
+        No cumple con los requisitos de administrador.
+      </div>
+    </div>
+    <!-- NO ES ADMINISTRADOR -->
+
+    <!-- ES ADMINISTRADOR -->
+    <div *ngIf="usuario[2] == 1" class="container">
+      <!-- AGREGAR PELICULA -->
+      <div>
+        <h3 class="pt-5 text-center fst-italic">Agregar Película</h3>
+        <app-agregar-pelicula></app-agregar-pelicula>
+      </div>
+      <!-- AGREGAR PELICULA -->
+
+      <!-- ELIMINAR PELICULA -->
+      <div>
+        <h3 class="pt-5 text-center fst-italic">Lista de Películas</h3>
+        <ul class="list-group" *ngIf="peliculas.length > 0">
+          <li class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let pelicula of peliculas">
+            <span>{{ pelicula.titulo }} ({{ pelicula.anio }})</span>
+            <span class="eliminar" (click)="deletePelicula(pelicula._id)">⛔</span>
+          </li>
+        </ul>
+      </div>
+      <!-- ELIMINAR PELICULA -->
+
+      <!-- ELIMINAR USUARIO -->
+      <div>
+        <h3 class="pt-5 text-center fst-italic">
+          Lista de Usuarios Sin Privilegios de Administrador
+        </h3>
+        <ul class="list-group" *ngIf="usuarios.length > 0">
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let user of usuarios">
+            <span>{{ user.username }} | {{ user.email }}</span>
+            <span class="eliminar" (click)="deleteUsuario(user._id)">⛔</span>
+          </li>
+        </ul>
+        <div *ngIf="usuarios.length == 0">
+          <div class="alert alert-info m-0 text-center" role="alert">
+            No se encuentran usuarios registrados en el sistema
+          </div>
+        </div>
+      </div>
+      <!-- ELIMINAR USUARIO -->
+
+      <!-- ELIMINAR REVIEW -->
+      <div>
+        <h3 class="pt-5 text-center fst-italic">
+          Lista de Reviews Publicadas por Todos los Usuarios
+        </h3>
+        <ul class="list-group" *ngIf="reviews.length > 0">
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let review of reviews">
+            <span>{{ review.titulo }} | {{ review.username }} |
+              {{ review.createdAt }}
+            </span>
+            <span class="eliminar" (click)="deleteReview(review._id)">⛔</span>
+          </li>
+        </ul>
+        <div *ngIf="reviews.length == 0">
+          <div class="alert alert-info m-0 text-center" role="alert">
+            No se encuentran reviews registradas en el sistema
+          </div>
+        </div>
+      </div>
+      <!-- ELIMINAR REVIEW -->
+    </div>
+    <!-- ES ADMINISTRADOR -->
+  </div>
+</div>
